@@ -1,0 +1,42 @@
+classDiagram
+    class User {
+        +userId: String
+        +name: String
+        +email: String
+        +password: String
+        +role: String
+        +createUser()
+        +authenticate()
+    }
+
+    class Team {
+        +teamId: String
+        +name: String
+        +bio: String
+        +logo: String
+        +members: List[User]
+        +createTeam()
+        +updateTeam()
+    }
+
+    class Post {
+        +postId: String
+        +author: User
+        +team: Team
+        +media: List[String]
+        +tags: List[String]
+        +createPost()
+        +updatePost()
+        +deletePost()
+    }
+
+    class Feed {
+        +feedId: String
+        +posts: List[Post]
+        +filterPosts()
+        +getFeed()
+    }
+
+    User --> Team : "can belong to"
+    Team --> Post : "can create"
+    Post --> Feed : "is part of"

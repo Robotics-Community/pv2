@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant U as User
+    participant T as Team
+    participant P as Post
+    participant F as Feed
+    U->>T: createTeam()
+    T-->>U: Team created
+    U->>P: createPost()
+    P-->>U: Post created
+    U->>F: getFeed()
+    F-->>U: Return filtered posts
